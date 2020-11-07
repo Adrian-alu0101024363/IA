@@ -10,6 +10,7 @@ private:
     int x_;
     int y_;
     vector<int> perception;
+    int dir_; //0 left, 1 up, 2 right, 3 down
 
 public: 
 
@@ -20,6 +21,9 @@ public:
     void setx(int x);
     int gety();
     void sety(int y);
+    int getdir();
+    void setdir(int dir);
     void calculatePerception(int i, int j,zone_t& road);
+    void move(int dir,zone_t& road);
 
 };
