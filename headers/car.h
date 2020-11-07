@@ -7,9 +7,8 @@ using namespace std;
 class car_t{
 
 private:
-    zone_t grid;
-    int x;
-    int y;
+    int x_;
+    int y_;
     vector<int> perception;
 
 public: 
@@ -18,9 +17,9 @@ public:
     car_t (int x, int y);
     ~car_t();
     int getx();
-    void setx();
+    void setx(int x);
     int gety();
-    void sety();
-    void calculatePerception(int i, int j);
+    void sety(int y);
+    void calculatePerception(int i, int j,zone_t& road);
 
 };

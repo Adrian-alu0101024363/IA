@@ -21,14 +21,14 @@ int main (int argc, char *argv[]) {
     zona.addPath(1,2);
     zona.addPath(1,3);
     zona.addPath(2,1);
-    zona.print();*/
+    zona.print();
     //zona.clear();
     zona.generate(50);
     zona.print();
     zona.generate(25);
     zona.print();
     zona.generate(90);
-    zona.print();
+    zona.print();*/
     //zone_t zona2(20,14);
     //zona2.print();
     
