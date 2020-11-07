@@ -16,6 +16,8 @@ int car_t::getx() { return x_;}
 
 void car_t::setx(int x) { x_ = x; }
 
+int car_t::gety() { return y_;}
+
 void car_t::sety(int y) { y_ = y; }
 
 void car_t::calculatePerception(int i, int j,zone_t& road) {
