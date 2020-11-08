@@ -8,8 +8,8 @@ private:
     vector<node_t*> generated_;
     vector<node_t*> fpath_;
     vector<node_t*> notexplored_;
-    int function_; //
-    int passengers;
+    int function_; //que tipo de funcion heuristica a usar
+    int passengers; 
 
 public:
     astar_t();
@@ -17,11 +17,11 @@ public:
     astar_t(int m, int n, int x, int y,int function);
     ~astar_t();
     void filestreet(zone_t& zone);
-    /*int getpassengers();
+    int getpassengers();
     void setpassengers(int passenger);
     void setfunction(int function);
-    int resultofh();
-    int calculateh();*/
+    int resultofh(int g, int x, int y);
+    int calculateh(int x, int y, int destx, int desty);
     void writetest();
 
 };

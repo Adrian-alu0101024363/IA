@@ -21,6 +21,8 @@ private:
     vector<string> symbols_;
     vector<string> zone_;
     string initval_;
+    int destx_;
+    int desty_;
 
 public:   
     zone_t ();
@@ -29,6 +31,8 @@ public:
     void resizev(int m, int n);
     string& at (int i, int j);
     string& operator()(int i, int j);
+    int get_destx();
+    int get_desty();
     int get_rows(void) const;
     int get_columns(void) const;
     void set_rows(int m);

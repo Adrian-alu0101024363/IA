@@ -67,6 +67,10 @@ void zone_t::set_symbol(string symbol, int position) {
     symbols_[position] = symbol;
 }
 
+int zone_t::get_destx() { return destx_;}
+
+int zone_t::get_desty() { return desty_;}
+
 void zone_t::write(string inival) {
     initval_ = inival;
     for(int i = 1; i <= rows_; i++){
@@ -123,6 +127,8 @@ void zone_t::addInitial(int i, int j) {
 void zone_t::addFinal(int i, int j) {
 
     at(i,j) = symbols_[1];
+    destx_ = i;
+    desty_ = j;
 }
 
 //función para usarla cuando implemente el algoritmo de la IA

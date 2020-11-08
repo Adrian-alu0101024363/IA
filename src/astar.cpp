@@ -23,9 +23,40 @@ astar_t::~astar_t() {
     generated_.resize(0);
     notexplored_.resize(0);
 }
-void astar_t::filestreet(zone_t& zone) {street_ = zone;}
+void astar_t::filestreet(zone_t& zone) { street_ = zone;}
 
-void astar_t::writetest() {
-    street_.addWall(1,1);
-    street_.print();
+int astar_t::getpassengers() { return passengers;}
+
+void astar_t::setpassengers(int passenger) { passengers = passenger;}
+
+void astar_t::setfunction(int function) { function_ = function;}
+
+int astar_t::resultofh(int g, int x, int y) {
+
+    int result = 0;
+    result = g + calculateh(x,y,street_.get_destx(),street_.get_desty());
+    return result;
+}
+
+int astar_t::calculateh(int x, int y, int destx, int desty) {
+    int cox, coy;
+    int result = 0;
+    if (function_ == 1) { //lineas rectas en x e y 
+        cox = x - destx;
+        coy = y - desty;
+        result = (fabs(cox) + fabs(coy));
+        return result;
+    } else if (function_ == 2) { //pitagoras linea recta exacta
+        cox = destx - x;
+        coy = desty - y;
+        pow(cox,2);
+        pow(coy,2);
+        result = sqrt(cox + coy);
+        return result;
+    } else {
+        cout << "Funcion no establecida" << endl;
+        return result;
     }
+}
+
+void astar_t::writetest() { street_.print();}
