@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <iostream>
-#include "../headers/car.h"
+//#include "../headers/car.h"
+#include "../headers/astar.h"
 
 using namespace std;
 
@@ -12,6 +13,9 @@ int main (int argc, char *argv[]) {
     zone_t zona2;
     zona2.readFromFile(filename);
     zona2.print();
+    astar_t test;
+    test.filestreet(zona2);
+    test.writetest();
     /*zona.addWall(2,2);
     zona.addWall(2,3);
     zona.addWall(4,2);
