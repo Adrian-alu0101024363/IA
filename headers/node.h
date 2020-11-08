@@ -15,8 +15,8 @@ private:
 
     int x_;
     int y_;
-    int g_;
-    int cost_;
+    int g_; //coste hasta el nodo
+    int cost_; //coste de paso 
     vector<node_t*> sucesors_;
     node_t* predecesor_;
 
