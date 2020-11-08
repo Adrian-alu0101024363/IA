@@ -25,10 +25,6 @@ astar_t::~astar_t() {
 }
 void astar_t::filestreet(zone_t& zone) { street_ = zone;}
 
-int astar_t::getpassengers() { return passengers;}
-
-void astar_t::setpassengers(int passenger) { passengers = passenger;}
-
 void astar_t::setfunction(int function) { function_ = function;}
 
 int astar_t::resultofh(int g, int x, int y) {
