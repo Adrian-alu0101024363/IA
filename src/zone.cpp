@@ -43,8 +43,14 @@ int zone_t::pos(int i, int j) const {
 }
 
 string& zone_t:: operator() (int i, int j) {
-
+    if (i < 1 || i > get_rows()) {
+        cout << "Se sale en filas";
+        return at(1,1);
+    } else if (j < 1 || j > get_columns()) {
+        return at(1,1);
+    } else {
     return at(i,j);
+    }
 }
 
 int zone_t::get_rows(void) const {
@@ -79,10 +85,15 @@ void zone_t::write(string inival) {
     }      
 }
 
+
+int zone_t::get_orgx() { return orgx_;}
+
+int zone_t::get_orgy() { return orgy_;}
+
 void zone_t::clear(void) {
     write(" ");     
 }
-//Usar switch case para mas elegancia y mas eficiencia
+//Usar switch case para mas elegancia (?)
 void zone_t::print() {
     cout << endl;
     for(int i = 1; i <= rows_; i++){
@@ -120,7 +131,10 @@ void zone_t::addWall(int i, int j) {
 
 //to do: controlar si ya hay un punto inicial y sustituirlo
 void zone_t::addInitial(int i, int j) {
+
     at(i,j) = symbols_[0];
+    orgx_ = i;
+    orgy_ = j;
 }
 
 //to do: controlar si ya hay un punto final y sustituirlo
@@ -133,7 +147,9 @@ void zone_t::addFinal(int i, int j) {
 
 //función para usarla cuando implemente el algoritmo de la IA
 void zone_t::addPath(int i, int j) {
+    if (at(i,j) != symbols_[1] && at(i,j) != symbols_[0]) {
     at(i,j) = symbols_[2];
+    }
 }
 
 void zone_t::readFromFile(string filename) {

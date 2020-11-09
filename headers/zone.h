@@ -23,6 +23,8 @@ private:
     string initval_;
     int destx_;
     int desty_;
+    int orgx_;
+    int orgy_;
 
 public:   
     zone_t ();
@@ -33,6 +35,8 @@ public:
     string& operator()(int i, int j);
     int get_destx();
     int get_desty();
+    int get_orgx();
+    int get_orgy();
     int get_rows(void) const;
     int get_columns(void) const;
     void set_rows(int m);

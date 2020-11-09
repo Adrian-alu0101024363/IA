@@ -9,31 +9,29 @@ int main (int argc, char *argv[]) {
 
     string filename;
     filename = argv[1];
-    zone_t zona(5,5);
+    zone_t zona(10,10);
     zone_t zona2;
     zona2.readFromFile(filename);
     zona2.print();
-    astar_t test;
-    test.filestreet(zona2);
+    astar_t test(zona2,2);
+    test.resolve();
+    test.path();
+    //test.filestreet(zona2);
     test.writetest();
-    /*zona.addWall(2,2);
-    zona.addWall(2,3);
-    zona.addWall(4,2);
-    zona.addInitial(1,4);
-    zona.addFinal(3,1);
-    zona.addPath(1,1);
-    zona.addPath(1,2);
-    zona.addPath(1,3);
-    zona.addPath(2,1);
-    zona.print();
-    //zona.clear();
-    zona.generate(50);
-    zona.print();
     zona.generate(25);
+    //zona.generate(90);
     zona.print();
-    zona.generate(90);
-    zona.print();*/
-    //zone_t zona2(20,14);
-    //zona2.print();
+    astar_t test2(zona,2);
+    test2.resolve();
+    test2.path();
+    test2.writetest();
+    zona.clear();
+    zona.generate(50);
+    astar_t test3(zona,1);
+    test3.resolve();
+    test3.path();
+    test3.writetest();
+    
+
     
 } 
