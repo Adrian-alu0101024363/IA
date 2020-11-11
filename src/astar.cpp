@@ -459,10 +459,10 @@ void astar_t::perception(int x, int y) {
     perception_[3] = 0;
 
     if ( x > 1 ) {
-        perception_[0] = street_(x - 1,y) == muro ? 1 : 0; //N
+        perception_[0] = street_(x - 1,y) == muro ? 1 : 0; //O
     }
     if (y > 1) {
-        perception_[1] = street_(x,y - 1) == muro ? 1 : 0; //O
+        perception_[1] = street_(x,y - 1) == muro ? 1 : 0; //N
     }
     if ( y < street_.get_columns() - 1) {
         perception_[3] = street_(x + 1,y) == muro ? 1 : 0; //S
