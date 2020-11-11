@@ -3,9 +3,10 @@
 using namespace std;
 
 astar_t::astar_t() {
+
     generated_.resize(0);
     notexplored_.resize(0);
-
+	perception_.resize(4);
 }
 
 
@@ -15,19 +16,21 @@ astar_t::astar_t(zone_t& zone,int function) {
     street_ = zone;
     function_ = function;
     perception_.resize(4);
-
 }
 
 astar_t::astar_t(int m, int n, int x, int y,int function) {
     street_.resizev(m,n);
     street_.addInitial(x,y);
     function_ = function;
+	perception_.resize(4);
 }
 
 astar_t::~astar_t() {
     generated_.resize(0);
     notexplored_.resize(0);
+	perception_.resize(0);
 }
+
 void astar_t::filestreet(zone_t& zone) { street_ = zone;}
 
 void astar_t::setfunction(int function) { function_ = function;}
@@ -63,6 +66,9 @@ int astar_t::calculateh(int x, int y, int destx, int desty) {
 void astar_t::writetest() { street_.print();}
 
 void astar_t::resolve() {
+
+	clock_t time;
+	time = clock();
 
     //Inicializar variables 
     int x = street_.get_orgx();
@@ -203,7 +209,7 @@ void astar_t::resolve() {
 			}
 		}
 	}
-    //Rodeado de muros
+    //En caso de no ser viable 
     if (initdir == -1) {
 
 		for (int i = 0; i < notexplored_.size(); i++) {
@@ -436,6 +442,9 @@ void astar_t::resolve() {
             }
         }
     }
+	time = clock() - time;
+	cout << "CPU time: " << (float)time /CLOCKS_PER_SEC << " seconds" << endl;
+	cout << "Generated nodes: " << generated_.size() << endl;
 
 }
 

@@ -117,16 +117,10 @@ void zone_t::print() {
     }      
     cout << endl;
 }
-
-//To do in general: Control de overflow del rango
-//Posible problema muro mal colocado imposible solucion
+//to do: controlar si ya hay un punto inicial o final ahi
 void zone_t::addWall(int i, int j) {
     int bloque = 219;
-    //if ((at(i,j) == symbols_[0]) || (at(i,j) == symbols_[1])) {
-      //  cout << "Muro no valido";
-    //} else {
     at(i,j) = (char)bloque;
-    //}
 }
 
 //to do: controlar si ya hay un punto inicial y sustituirlo
@@ -145,7 +139,7 @@ void zone_t::addFinal(int i, int j) {
     desty_ = j;
 }
 
-//función para usarla cuando implemente el algoritmo de la IA
+//función usada por el algoritmo de la IA para marcar el camino
 void zone_t::addPath(int i, int j) {
     if (at(i,j) != symbols_[1] && at(i,j) != symbols_[0]) {
     at(i,j) = symbols_[2];
@@ -191,11 +185,8 @@ void zone_t::generate(int porcentaje) {
         randomj = (rand() % columns_) +1;
         if (at(randomi,randomj) == initval_ ) {
             addWall(randomi,randomj);
-            contador++;
         } else  {
             --i;
         }
-        
     }
-    //cout << contador << endl;
 }

@@ -1,4 +1,4 @@
-#include "../headers/car.h"
+#include "../headers/zone.h"
 #include "../headers/node.h"
 #include <climits>
 
@@ -10,7 +10,7 @@ private:
     vector<node_t*> fpath_;
     vector<node_t*> notexplored_;
     int function_; //que tipo de funcion heuristica a usar
-    vector<int> perception_; //0 N,1 O,2 S,3 E
+    vector<int> perception_; //0 O,1 N,2 E,3 S
 
 public:
     astar_t();

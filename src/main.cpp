@@ -9,7 +9,7 @@ int main (int argc, char *argv[]) {
 
     string filename;
     filename = argv[1];
-    zone_t zona(10,10);
+    zone_t zona(25,25);
     zone_t zona2;
     zona2.readFromFile(filename);
     zona2.print();
