@@ -445,6 +445,11 @@ void astar_t::resolve() {
 	time = clock() - time;
 	cout << "CPU time: " << (float)time /CLOCKS_PER_SEC << " seconds" << endl;
 	cout << "Generated nodes: " << generated_.size() << endl;
+	if (fpath_.size() > 1) {
+	cout << "Optimal path without counting I and F : " << fpath_.size() - 2 << endl;
+	} else {
+		cout << "No optimal path" << endl;
+	}
 
 }
 
