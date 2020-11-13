@@ -117,26 +117,33 @@ void zone_t::print() {
     }      
     cout << endl;
 }
-//to do: controlar si ya hay un punto inicial o final ahi
 void zone_t::addWall(int i, int j) {
+    if ((at(i,j) != symbols_[1]) && (at(i,j) != symbols_[2]) && (at(i,j) != symbols_[0])) {
     int bloque = 219;
     at(i,j) = (char)bloque;
+    } else {
+        cout << "Wall can not be place there" << endl;
+    }
 }
 
-//to do: controlar si ya hay un punto inicial y sustituirlo
 void zone_t::addInitial(int i, int j) {
-
-    at(i,j) = symbols_[0];
-    orgx_ = i;
-    orgy_ = j;
+    if ((at(i,j) != symbols_[1]) && (at(i,j) != symbols_[2])) {
+        at(i,j) = symbols_[0];
+        orgx_ = i;
+        orgy_ = j;
+    } else {
+        cout << "Initial can not be place there" << endl;
+    }
 }
 
-//to do: controlar si ya hay un punto final y sustituirlo
 void zone_t::addFinal(int i, int j) {
-
-    at(i,j) = symbols_[1];
-    destx_ = i;
-    desty_ = j;
+    if ((at(i,j) != symbols_[0]) && (at(i,j) != symbols_[2])) {
+        at(i,j) = symbols_[1];
+        destx_ = i;
+        desty_ = j;
+    } else {
+        cout << "Final can not be place there" << endl;
+    }
 }
 
 //función usada por el algoritmo de la IA para marcar el camino
